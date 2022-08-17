@@ -1,8 +1,8 @@
 import { useState, useEffect } from "react";
 import "./App.css";
-import { FormContainer } from "./FormContainer";
-import { Pagenation } from "./Pagenation";
-import { DiscussionWrapper } from "./DiscussionWrapper";
+import { FormContainer } from "./components/FormContainer";
+import { Pagenation } from "./components/Pagenation";
+import { DiscussionWrapper } from "./components/DiscussionWrapper";
 import { getFindAll } from "./api/DiscussionsDataApi";
 
 const App = () => {

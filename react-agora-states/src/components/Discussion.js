@@ -1,6 +1,6 @@
 import React from "react";
-import answered from "./img/answered.png";
-import unanswered from "./img/unanswered.png";
+import answered from "../img/answered.png";
+import unanswered from "../img/unanswered.png";
 
 export const Discussion = (props) => {
   const { discussions } = props;
