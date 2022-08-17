@@ -1,11 +1,14 @@
 import React from "react";
 import { Discussion } from "./Discussion";
 
-export const DiscussionWrapper = () => {
+export const DiscussionWrapper = (props) => {
+  const { discussions } = props;
   return (
-    <section className="discussion__wrapper hide">
+    <section
+      className={`discussion__wrapper${discussions.length <= 0 ? " hide" : ""}`}
+    >
       <ul className="discussions__container">
-        <Discussion />
+        <Discussion discussions={discussions} />
       </ul>
     </section>
   );
