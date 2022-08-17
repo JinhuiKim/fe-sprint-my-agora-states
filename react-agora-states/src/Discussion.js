@@ -1,4 +1,6 @@
 import React from "react";
+import answered from "./img/answered.png";
+import unanswered from "./img/unanswered.png";
 
 export const Discussion = (props) => {
   const { discussions } = props;
@@ -6,15 +8,6 @@ export const Discussion = (props) => {
   const dateToLocaleString = (dateString) => {
     let dt = new Date(dateString);
     return dt.toLocaleString();
-  };
-
-  const setBodyHTML = (text) => {
-    let lines = text.split("\n");
-    let resultString = "";
-    for (let i = 0; i < lines.length; i++) {
-      resultString += lines[i] + "<br>\n";
-    }
-    return <p dir="auto">${resultString}</p>;
   };
 
   return (
@@ -45,11 +38,7 @@ export const Discussion = (props) => {
           </div>
           <div className="discussion__answered">
             <img
-              src={
-                discussion.answer
-                  ? "./img/answered.png"
-                  : "./img/unanswered.png"
-              }
+              src={discussion.answer ? answered : unanswered}
               alt={discussion.answer ? "Answered" : "Unanswered"}
             />
           </div>
