@@ -149,30 +149,27 @@ const loadItems = () => {
 };
 
 // agoraStatesDiscussions 배열의 모든 데이터를 화면에 렌더링하는 함수입니다.
-const render = () => {
-  getFindAll().then((response) => {
-    agoraStatesDiscussions.push(...response);
+const render = async () => {
+  const response = await getFindAll();
+  agoraStatesDiscussions.push(...response);
 
-    const localStorageJsonArray = getLocalStorageData("discussion_array");
-    if (Array.isArray(localStorageJsonArray))
-      agoraStatesDiscussions.unshift(...localStorageJsonArray);
-    console.log(agoraStatesDiscussions);
+  const localStorageJsonArray = getLocalStorageData("discussion_array");
+  if (Array.isArray(localStorageJsonArray))
+    agoraStatesDiscussions.unshift(...localStorageJsonArray);
+  console.log(agoraStatesDiscussions);
 
-    const discussionWrapper = document.querySelector(".discussion__wrapper");
-    const paginationContainer = document.querySelector(
-      ".pagination__container"
-    );
-    if (!agoraStatesDiscussions.length) {
-      discussionWrapper.classList.add("hide");
-      paginationContainer.classList.add("hide");
-    } else {
-      discussionWrapper.classList.remove("hide");
-      paginationContainer.classList.remove("hide");
-    }
+  const discussionWrapper = document.querySelector(".discussion__wrapper");
+  const paginationContainer = document.querySelector(".pagination__container");
+  if (!agoraStatesDiscussions.length) {
+    discussionWrapper.classList.add("hide");
+    paginationContainer.classList.add("hide");
+  } else {
+    discussionWrapper.classList.remove("hide");
+    paginationContainer.classList.remove("hide");
+  }
 
-    loadItems();
-    return;
-  });
+  loadItems();
+  return;
 };
 
 // ul 요소에 agoraStatesDiscussions 배열의 모든 데이터를 화면에 렌더링합니다.
